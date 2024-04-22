@@ -43,7 +43,7 @@ check_pass(user, passw)
 
 def home():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists home(
         ID int,
@@ -59,7 +59,7 @@ def home():
 
 def user_type():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         '''CREATE TABLE IF NOT EXISTS user_type (
@@ -85,7 +85,7 @@ def user_type():
 
 def user():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''CREATE TABLE IF NOT EXISTS user(
         ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -105,7 +105,7 @@ def user():
 
 def room():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists room
 (
@@ -128,7 +128,7 @@ def room():
 
 def electronics():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists electronics
 (
@@ -158,7 +158,7 @@ def electronics():
 
 def sensor():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists sensor(
         ID  integer primary key autoincrement not null,
@@ -181,7 +181,7 @@ def sensor():
 # add_many
 def add_many_sensor(data):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.executemany(
         'INSERT OR IGNORE INTO sensor VALUES(null, ?, ? , ?)', data)
@@ -190,8 +190,9 @@ def add_many_sensor(data):
 
 
 def add_many_electronics(data):
+    
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cr = c.cursor()
     cr.executemany(
         'INSERT OR IGNORE INTO electronics VALUES(null, ?, ?, ?, ?, ?)', data)
@@ -201,7 +202,7 @@ def add_many_electronics(data):
 
 def add_many_room(data):
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cr = c.cursor()
     cr.executemany(
         'INSERT OR IGNORE INTO room VALUES(null, ?, ?, ?, ?, ?, ?, ?)', data)
@@ -211,7 +212,7 @@ def add_many_room(data):
 
 def add_many_user_type(data):
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cr = c.cursor()
     cr.executemany(
         'INSERT OR IGNORE INTO user_type VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?)', data)
@@ -221,7 +222,7 @@ def add_many_user_type(data):
 
 def add_many_user(data):
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cr = c.cursor()
     cr.executemany(
         'INSERT OR IGNORE INTO user VALUES(null, ?, ?, ?, ?)', data)
@@ -233,7 +234,7 @@ def add_many_user(data):
 
 def add_user(username, password, email, type):
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cr = c.cursor()
     cr.execute(
         'INSERT OR IGNORE INTO user VALUES(null, ?, ?, ?, ?)', (username, password, email, type))
@@ -243,7 +244,7 @@ def add_user(username, password, email, type):
 
 def add_home():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'insert or ignore into home(ID, automatic_mode, guest_mode) values(1, {auto}, {guest})'.format(auto=1, guest=1))
@@ -253,7 +254,7 @@ def add_home():
 
 def add_automatic_mode_history(change_by, on, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'insert into automatic_mode_history values(null, ?, ?, ?)', (change_by, on, time))
@@ -269,7 +270,7 @@ def add_automatic_mode_history(change_by, on, time):
 
 def electronics_history():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists electronics_history(
         ID integer primary key autoincrement not null,
@@ -290,7 +291,7 @@ def electronics_history():
 
 def guest_mode_history():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists guest_mode_history(
         ID integer primary key autoincrement not null,
@@ -308,7 +309,7 @@ def guest_mode_history():
 
 def automatic_mode_history():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('''create table if not exists automatic_mode_history(
         ID integer primary key autoincrement not null,
@@ -326,7 +327,7 @@ def automatic_mode_history():
 
 def show(table):
     c = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cor = c.cursor()
     cor.execute('SELECT * FROM {tabel}'.format(tabel=table))
     print(cor.fetchall(), 'done')

@@ -39,7 +39,7 @@ import threading
 
 def add_electronic_history(electronic_id, on, change_by, room, sensor_data, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('insert into electronics_history values(null, ?, ?, ?, ?, ?, ?)',
                 (electronic_id, on, change_by, room, sensor_data, time))
@@ -49,7 +49,7 @@ def add_electronic_history(electronic_id, on, change_by, room, sensor_data, time
 
 def add_automatic_mode_history(change_by, on, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'insert into automatic_mode_history values(null, ?, ?, ?)', (change_by, on, time))
@@ -59,7 +59,7 @@ def add_automatic_mode_history(change_by, on, time):
 
 def add_guest_mode_history(change_by, on, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'insert into guest_mode_history values(null, ?, ?, ?)', (change_by, on, time))
@@ -71,7 +71,7 @@ def add_guest_mode_history(change_by, on, time):
 
 def get_user_type(username):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select user_type from user where username = "{}"'.format(
         username))
@@ -83,7 +83,7 @@ def get_user_type(username):
 
 def get_guest_mode():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select guest_mode from home where ID = 1')
     data = cur.fetchone()[0]
@@ -95,7 +95,7 @@ def get_guest_mode():
 
 def get_automatic_mode():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select automatic_mode from home where ID = 1')
     data = cur.fetchone()[0]
@@ -106,7 +106,7 @@ def get_automatic_mode():
 
 def get_ac_bedroom():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "AC Bedroom"')
     data = cur.fetchone()[0]
@@ -117,7 +117,7 @@ def get_ac_bedroom():
 
 def get_ac_living_room():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "AC living room"')
     data = cur.fetchone()[0]
@@ -128,7 +128,7 @@ def get_ac_living_room():
 
 def get_ac_kitchen():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "AC kitchen"')
     data = cur.fetchone()[0]
@@ -139,7 +139,7 @@ def get_ac_kitchen():
 
 def get_lamp_bedroom():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Lamp bedroom"')
     data = cur.fetchone()[0]
@@ -150,7 +150,7 @@ def get_lamp_bedroom():
 
 def get_lamp_bathroom():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Lamp bathroom"')
     data = cur.fetchone()[0]
@@ -161,7 +161,7 @@ def get_lamp_bathroom():
 
 def get_lamp_living_room():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Lamp living room"')
     data = cur.fetchone()[0]
@@ -172,7 +172,7 @@ def get_lamp_living_room():
 
 def get_lamp_kitchen():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Lamp kitchen"')
     data = cur.fetchone()[0]
@@ -183,7 +183,7 @@ def get_lamp_kitchen():
 
 def get_music_bedroom():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Music Bedroom"')
     data = cur.fetchone()[0]
@@ -194,7 +194,7 @@ def get_music_bedroom():
 
 def get_music_kitchen():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Music kitchen"')
     data = cur.fetchone()[0]
@@ -205,7 +205,7 @@ def get_music_kitchen():
 
 def get_music_bathroom():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select on_off from electronics where name = "Music bathroom"')
     data = cur.fetchone()[0]
@@ -216,7 +216,7 @@ def get_music_bathroom():
 
 def get_music_living_room():
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'select on_off from electronics where name = "Music living room"')
@@ -228,7 +228,7 @@ def get_music_living_room():
 
 def get_sensor_data(id):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('select current_data from sensor where ID = ?', (id,))
     data = cur.fetchone()[0]
@@ -240,7 +240,7 @@ def get_sensor_data(id):
 # change
 def change_automatic_mode(change_by, val, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('update home set automatic_mode = ? where ID = 1', (val,))
     con.commit()
@@ -250,7 +250,7 @@ def change_automatic_mode(change_by, val, time):
 
 def change_guest_mode(change_by, val, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute('update home set guest_mode = ? where ID = 1', (val,))
     con.commit()
@@ -260,7 +260,7 @@ def change_guest_mode(change_by, val, time):
 
 def change_ac_bedroom(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 1', (val, user, time))
@@ -272,7 +272,7 @@ def change_ac_bedroom(val, user, time):
 
 def change_ac_living_room(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 3', (val, user, time))
@@ -284,7 +284,7 @@ def change_ac_living_room(val, user, time):
 
 def change_ac_kitchen(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 2', (val, user, time))
@@ -296,7 +296,7 @@ def change_ac_kitchen(val, user, time):
 
 def change_lamp_bedroom(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 8', (val, user, time))
@@ -308,7 +308,7 @@ def change_lamp_bedroom(val, user, time):
 
 def change_lamp_bathroom(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 10', (val, user, time))
@@ -320,7 +320,7 @@ def change_lamp_bathroom(val, user, time):
 
 def change_lamp_living_room(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 11', (val, user, time))
@@ -332,7 +332,7 @@ def change_lamp_living_room(val, user, time):
 
 def change_lamp_kitchen(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 9', (val, user, time))
@@ -344,7 +344,7 @@ def change_lamp_kitchen(val, user, time):
 
 def change_music_bedroom(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 4', (val, user, time))
@@ -356,7 +356,7 @@ def change_music_bedroom(val, user, time):
 
 def change_music_kitchen(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 5', (val, user, time))
@@ -368,7 +368,7 @@ def change_music_kitchen(val, user, time):
 
 def change_music_bathroom(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 6', (val, user, time))
@@ -380,7 +380,7 @@ def change_music_bathroom(val, user, time):
 
 def change_music_living_room(val, user, time):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update electronics set on_off = ?, changed_by = ?, time_last_changed = ? where ID = 7', (val, user, time))
@@ -392,7 +392,7 @@ def change_music_living_room(val, user, time):
 
 def change_sensor(ID, data):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'update sensor set current_data = {d} where ID = {id}'.format(d=data, id=ID))
@@ -402,7 +402,7 @@ def change_sensor(ID, data):
 
 def change_pass(username, new_pass):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute("update user set password = '{passw}' where username = '{name}'".format(
         passw=new_pass, name=username))
@@ -414,7 +414,7 @@ def change_pass(username, new_pass):
 
 def check_pass(username, passw):
     con = sql.connect(
-        'C:\kuliah\semester 3\Pemrograman berbasis objek IoT\project_smart_home\smarthome.db')
+        'smarthome.db')
     cur = con.cursor()
     cur.execute(
         'select password from user where username = "{name}"'.format(name=username))
